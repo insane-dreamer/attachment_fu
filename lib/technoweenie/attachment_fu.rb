@@ -101,7 +101,7 @@ module Technoweenie # :nodoc:
         if attachment_options[:path_prefix].nil?
           attachment_options[:path_prefix] = attachment_options[:storage] == :s3 ? table_name : File.join("public", table_name)
         end
-        attachment_options[:path_prefix]   = attachment_options[:path_prefix][1..-1] if options[:path_prefix].first == '/'
+        attachment_options[:path_prefix]   = attachment_options[:path_prefix][1..-1] if options[:path_prefix][1..1] == '/'
 
         association_options = { :foreign_key => 'parent_id' }
         if attachment_options[:association_options]
